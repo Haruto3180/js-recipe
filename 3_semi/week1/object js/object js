@@ -1,0 +1,10 @@
+const haruto = {
+    name:　"目戸晴登",
+    university:"中央大学",
+    age:18,
+    hobby: ["サックス","クラロワ","netflix"],
+    sayhello: function(){
+        console.log("よろしくおねがいします"),
+    }
+
+}
