@@ -4,19 +4,35 @@ const button = document.getElementById("add-button")
 const container = document.getElementById("memo-container")
 
 let memos = []
+if (localStorage.memos) {
+  const memosJson = localStorage.memos
+  memos = JSON.parse(memosJson)
+}
 
 button.onclick = function() {
   memos.push(Input.value)
-  updateMemoContainer()
-}
+  //   localstorageに保存
+  localStorage.memos = JSON.stringify(memos)
 
-const updateMemoContainer = function() {
   container.innerHTML = ""
 
-  for (let i = 0; i < memos.lenth; i++) {
+  for (let i = 0; i < memos.length; i++) {
     const text = memos[i]
-    const div = document.createElement("")
-    div.textContent = text
-    memo
+    const Div = document.createElement("div")
+    Div.textContent = text
+
+    container.append(Div)
   }
 }
+
+// const updateMemoContainer = function() {
+//   container.innerHTML = ""
+
+//   //   for (let i = 0; i < memos.lenth; i++) {
+//   //     const text = memos[i]
+//   //     const div = document.createElement("")
+//   //     div.textContent = text
+
+//   //     container.append(div)
+//   //   }
+// }
